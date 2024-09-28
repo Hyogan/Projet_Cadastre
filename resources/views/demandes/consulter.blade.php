@@ -108,10 +108,8 @@
                             <strong>Description:</strong> {{ $document->description }}<br>
                             <strong>Photo:</strong> 
                             <div class="document-photo">
-                                <img src="{{ env('APP_URL') . Storage::url($document->photo) }} }}" alt="Document Photo">
+                                <img src="{{ Storage::url($document->photo) }}" alt="Document Photo">
                             </div>
-                            <img src="{{ storage_path('app/public/' . $document->photo) }}" alt="Document Photo">
-                            <p>Image URL: {{ env('APP_URL') . Storage::url($document->photo) }}</p> <!-- Debug line -->
                         @endforeach
                 </div>
             </div>

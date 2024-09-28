@@ -16,6 +16,23 @@
             </div>
             <div class="form-block-inline">
                 <div class="form-block">
+                    <p>Departement <span class="asterisc">*</span></p>
+                    <input required type="text" name="departement" placeholder="Moungo"/>
+                    @error("departement")
+                        <p class="text-error">{{$message}}</p>
+                    @enderror
+                </div>
+
+                <div class="form-block">
+                    <p>Localite <span class="asterisc">*</span></p>
+                    <input required type="text" name="localite" placeholder="Moungo"/>
+                    @error("localite")
+                        <p class="text-error">{{$message}}</p>
+                    @enderror
+                </div>
+            </div>
+            <div class="form-block-inline">
+                <div class="form-block">
                     <p>Numero Titre foncier <span class="asterisc">*</span></p>
                     <input required type="number" name="numero_du_titre_foncier" placeholder="numero du Titre Foncier"/>
                 </div>
@@ -31,13 +48,20 @@
                 @enderror  
             </div>
             <div class="form-block">
-                <p>Localité <span class="asterisc">*</span></p>
+                <p>Objectif <span class="asterisc">*</span></p>
                 <select required name="destination">
                     <option value="logement">logements</option>
                     <option value="infrastructures_publiques">infrastructures publiques</option>
                     <option value="lotissement">lotissement</option>
                 </select>
                 @error("destination")
+                    <p class="text-error">{{$message}}</p>
+                @enderror  
+            </div>
+            <div class="form-block">
+                <p>Budget <span class="asterisc">*</span></p>
+                <input required type="number" name="budget" placeholder="budget"/>
+                @error("budget")
                     <p class="text-error">{{$message}}</p>
                 @enderror  
             </div>

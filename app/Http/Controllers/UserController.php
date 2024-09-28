@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -62,6 +63,9 @@ class UserController extends Controller
             'type_personne' => 'required',
             'telephone' => 'required|min:1|max:1',
             'quartier' => 'required|min:3',
+            'nationalite' => 'required|min:5',
+            'birthplace' => 'required|min:2',
+            'birthdate' => 'required|date|before:' . Carbon::now()->subYears(20)->toDateString(),
         ]);
 
         $user = User::create([
@@ -71,6 +75,9 @@ class UserController extends Controller
             'type_personne' => $validated['type_personne'],
             'telephone' => $validated['telephone'],
             'quartier' => $validated['quartier'],
+            'nationalite' => $validated['nationalite'],
+            'birthplace' => $validated['birthplace'],
+            'birthdate' => $validated['birthdate']
         ]);
 
         Auth::login($user);

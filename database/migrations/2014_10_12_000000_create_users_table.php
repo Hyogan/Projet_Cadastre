@@ -18,9 +18,12 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('telephone');
+            $table->string('nationalite');
             $table->string('quartier');
             $table->enum('type_personne',['personne_physique','personne_morale']);
             $table->enum('role', ['client', 'admin', 'gestionnaire'])->default('client'); // Rôle de l'utilisateur
+            $table->date('birthdate');
+            $table->string('birthplace');
             $table->rememberToken();
             $table->timestamps();
         });

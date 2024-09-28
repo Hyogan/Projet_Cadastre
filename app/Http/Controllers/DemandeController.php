@@ -19,6 +19,9 @@ class DemandeController extends Controller
             'numero_du_titre_foncier' => 'required|string|max:255',
             'superficie' => 'required|numeric',
             'destination' => 'required|in:logement,infrastructures_publiques,lotissement',
+            'departement' => 'required|min:2',
+            'localite' => 'required|min:2',
+            'budget' => 'required|min:2|numeric'
         ]);
 
         Demande::create([
@@ -27,7 +30,10 @@ class DemandeController extends Controller
             'numero_du_titre_foncier' => $validated['numero_du_titre_foncier'],
             'superficie' => $validated['superficie'],
             'destination' => $validated['destination'],
-            'statut' => 'en_attente'
+            'statut' => 'en_attente',
+            'departement' => $validated['departement'],
+            'localite' => $validated['localite'],
+            'budget' => $validated['budget']
         ]);
 
         return redirect()->route('client.acceuil')->with('success', 'Demande soumise avec succès.');
@@ -63,6 +69,9 @@ class DemandeController extends Controller
             'decret' => 'required|string|max:255',
             'superficie' => 'required|numeric',
             'destination' => 'required|in:logement,infrastructures_publiques,lotissement',
+            'departement' => 'required|min:2',
+            'localite' => 'required|min:2',
+            'budget' => 'required|min:2|numeric'
         ]);
         if ($demande) {
             $demande->update($validated);
@@ -85,11 +94,17 @@ class DemandeController extends Controller
         // $demands = Demande::with('user')->get();
         // $data = YourModel::all(); // Obtenez vos données depuis la base
         
-        $demande = Demande::with('client')->findOrFail($demande->id);
-
+        $demande = Demande::with(['client', 'documents'])->findOrFail($demande->id);
         $pdf = PDF::loadView('demandes.imprimer', compact('demande'))->setOptions(['defaultFont' => 'Arial']);;
         return $pdf->download('demande_' . $demande->id . '.pdf');
-      
-        // return view('demandes.imprimer',compact('demande'));
+    }
+
+    public function consulter(Demande $demande)
+    {
+        $demande = Demande::with(['client', 'documents'])->findOrFail($demande->id);
+
+
+        $pdf = PDF::loadView('demandes.imprimer', compact('demande'))->setOptions(['defaultFont' => 'Arial']);
+        return view('demandes.consulter', compact('demande'));
     }
 }

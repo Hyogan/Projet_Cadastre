@@ -30,10 +30,12 @@
                         <td>{{str_replace('_', ' ', $demande->destination)}}</td>
                         <td>{{str_replace('_', ' ', $demande->statut)}}</td>
                         <td>{{$demande->created_at->format('j F, Y')}}</td>
-                        <td>
-                           <a href="{{Route('demandes.pdf',$demande->id)}}">Imprimer</a>
-                           <a href="{{Route('demandes.consulter',$demande->id)}}">Consulter</a>
-                          </td>
+                        <td> 
+                          <a href="{{Route('demandes.consulter',$demande->id)}}">Consulter</a>
+                          <a href="{{Route('demandes.pdf',$demande->id)}}">Imprimer</a>
+                          <a href="{{Route('document.create',$demande->id)}}">Document</a>
+                        </td>
+                        
                     </tr>
                   @endforeach
               </tbody>

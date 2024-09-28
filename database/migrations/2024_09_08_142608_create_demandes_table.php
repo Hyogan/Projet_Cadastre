@@ -17,6 +17,11 @@ return new class extends Migration
             $table->string('arrondissement');
             $table->string('numero_du_titre_foncier');
             $table->decimal('superficie', 10, 2);
+            
+            $table->string('departement');
+            $table->string('localite');
+            $table->decimal('budget');
+            
             $table->string('destination');
             $table->enum('statut', ['en_attente', 'approuve', 'rejete']);
             $table->foreign('client_id')->references('id')->on('users')->onDelete('cascade');            

@@ -5,6 +5,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\DemandeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\GestionnaireController;
 use App\Http\Controllers\MessageController;
 
@@ -52,16 +53,25 @@ Route::middleware('auth')->group(function () {
     Route::get('demandes/{demande}', [DemandeController::class, 'show'])->name('demandes.show');
 });
 
+
+
 // Routes pour les administrateurs
 Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
-    Route::get('demandes', [AdminController::class, 'listeDemandes'])->name('demandes.index');
     Route::get('user/delete/{user}', [UserController::class,'delete'])->name('user.delete');
+    Route::get('demandes', [AdminController::class, 'listeDemandes'])->name('demandes.index');
+    Route::get('gestionnaire/create',[GestionnaireController::class,'create'])->name('gestionnaire.create');
+    Route::post('gestionnaire/store',[GestionnaireController::class,'store'])->name('gestionnaire.store');
+
 });
 
 // Routes pour les gestionnaires
 Route::middleware(['auth', 'role:gestionnaire'])->group(function () {
     Route::get('gestionnaire/dashboard', [GestionnaireController::class, 'dashboard'])->name('gestionnaire.dashboard');
+    Route::get('gestionnaire/demandes', [GestionnaireController::class, 'listeDemandes'])->name('listeDemandes.index');
+    Route::get('document/create/{demande}', [DocumentController::class, 'create'])->name('document.create');
+    Route::post('document/store', [DocumentController::class, 'store'])->name('document.store');
+
     // Autres routes pour le gestionnaire
 });
 
@@ -69,6 +79,7 @@ Route::middleware(['auth', 'role:gestionnaire'])->group(function () {
 Route::middleware('auth')->group(function () {
     
     Route::get('/demands/{demande}/pdf', [DemandeController::class, 'generatePdf'])->name('demandes.pdf');
+    Route::get('/demands/{demande}/consulter', [DemandeController::class, 'consulter'])->name('demandes.consulter');
 });
 
 

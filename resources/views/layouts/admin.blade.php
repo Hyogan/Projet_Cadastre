@@ -22,11 +22,15 @@
                        
                     </a>
                     
-                    <a href="{{Route('demandes.index')}}" id="drivers" class="hover:shadow-xl shadow-gray-400 text-slate-600 hover:rounded-lg w-full py-4 px-4 cursor-pointer flex justify-start items-center space-x-2 transition hover:text-white hover:bg-blue-500 dark:text-white" title="message">
+                    <a href="{{Route('demandes.index')}}" id="demandes-index" class="hover:shadow-xl shadow-gray-400 text-slate-600 hover:rounded-lg w-full py-4 px-4 cursor-pointer flex justify-start items-center space-x-2 transition hover:text-white hover:bg-blue-500 dark:text-white" title="message">
                         <i class="text-center fa-regular fa-id-card"></i>
                         <span class="menu-item">Liste des demandes</span>
                     </a>
-                    <a href="{{Route('message.index')}}" id="drivers" class="hover:shadow-xl shadow-gray-400 text-slate-600 hover:rounded-lg w-full py-4 px-4 cursor-pointer flex justify-start items-center space-x-2 transition hover:text-white hover:bg-blue-500 dark:text-white" title="message">
+                    <a href="{{Route('gestionnaire.create')}}" id="gestionnaire-create" class="hover:shadow-xl shadow-gray-400 text-slate-600 hover:rounded-lg w-full py-4 px-4 cursor-pointer flex justify-start items-center space-x-2 transition hover:text-white hover:bg-blue-500 dark:text-white" title="message">
+                        <i class="text-center fa-regular fa-id-card"></i>
+                        <span class="menu-item">Creer gestionnaire</span>
+                    </a>
+                    <a href="{{Route('message.index')}}" id="messages-index" class="hover:shadow-xl shadow-gray-400 text-slate-600 hover:rounded-lg w-full py-4 px-4 cursor-pointer flex justify-start items-center space-x-2 transition hover:text-white hover:bg-blue-500 dark:text-white" title="message">
                         <i class="text-center fa-regular fa-id-card"></i>
                         <span class="menu-item">Messages</span>
                     </a>

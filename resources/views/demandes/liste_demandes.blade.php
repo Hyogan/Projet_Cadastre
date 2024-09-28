@@ -29,6 +29,7 @@
                         <a href="{{Route('client.demandes.supprimer',$demande->id)}}">Annuler</a>
                         <a href="{{Route('client.demandes.modifier',$demande->id)}}">Modifier</a>
                         <a href="{{Route('demandes.pdf',$demande->id)}}">Imprimer</a>
+                        <a href="{{Route('demandes.consulter',$demande->id)}}">Consulter</a>
                     </td>
                   </tr>
                   </tr>
