@@ -21,7 +21,7 @@ class DemandeController extends Controller
             'destination' => 'required|in:logement,infrastructures_publiques,lotissement',
             'departement' => 'required|min:2',
             'localite' => 'required|min:2',
-            'budget' => 'required|min:2|numeric'
+            'budget' => 'required|min:2'
         ]);
 
         Demande::create([
@@ -66,7 +66,6 @@ class DemandeController extends Controller
         $validated = $request->validate([
             'arrondissement' => 'required|string|max:255',
             'numero_du_titre_foncier' => 'required|string|max:255',
-            'decret' => 'required|string|max:255',
             'superficie' => 'required|numeric',
             'destination' => 'required|in:logement,infrastructures_publiques,lotissement',
             'departement' => 'required|min:2',

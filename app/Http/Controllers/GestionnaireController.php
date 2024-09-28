@@ -22,7 +22,11 @@ class GestionnaireController extends Controller
         return view("gestionnaire.home",compact(['en_attente','rejetes','approuves','clients','gestionnaires']));
     }
 
-    
+    public function create() {
+        return view('gestionnaire.create');
+    }
+
+
     public function listeDemandes() {
         $demandes = Demande::with('client')->get();
 

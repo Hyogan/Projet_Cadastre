@@ -20,7 +20,7 @@ return new class extends Migration
             
             $table->string('departement');
             $table->string('localite');
-            $table->decimal('budget');
+            $table->bigInteger('budget');
             
             $table->string('destination');
             $table->enum('statut', ['en_attente', 'approuve', 'rejete']);

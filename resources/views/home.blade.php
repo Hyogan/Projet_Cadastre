@@ -15,7 +15,7 @@
                @endauth
                @if(!auth()->user())
                 <li><a href="{{Route('user.signup')}}">Inscription</a></li>
-                <li><a href="{{Route('user.login')}}">Connexion</a</li>
+                <li><a href="{{Route('login')}}">Connexion</a</li>
                   
                @endif    
                 <li><a href="#">Contact</a></li>
@@ -30,7 +30,7 @@
             <ul>
                 <li><a href="">Home</a</li>
                 <li><a href="{{Route('user.signup')}}">Inscription</a</li>
-                <li><a href="{{Route('user.login')}}">Connexion</a</li>
+                <li><a href="{{Route('login')}}">Connexion</a</li>
                 <li><a href="#">Contact</a></li>
             </ul>
         </div>
@@ -40,7 +40,7 @@
             <h1>Registres des domaines</h1>
             <p>Inscrivez vous et faites votre de demande de tittre foncier aisément</p>
             <div class="hero_links">
-                <a href="{{Route('user.login')}}">Me connecter</a>
+                <a href="{{Route('login')}}">Me connecter</a>
                 <a href="{{Route('user.signup')}}">M'inscrire</a>
             </div>
         </section>

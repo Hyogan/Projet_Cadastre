@@ -31,7 +31,9 @@ Route::get('/home', function () {
 
                                     // USER BASICS CRUD
 
-Route::get('/user/login', [UserController::class,"login"])->name("user.login");
+Route::get('/user/login', [UserController::class,"login"])->name("login");
+// Route::get('/user/login', [UserController::class,"login"])->name("user.login");
+
 Route::post("/user/register",[UserController::class,"register"])->name("user.store");
 Route::get('/user/signup',[UserController::class,"signup"])->name("user.signup");
 

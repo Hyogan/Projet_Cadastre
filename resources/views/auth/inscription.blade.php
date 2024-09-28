@@ -58,7 +58,7 @@
                 <p class="text-error">{{$message}}</p>
             @enderror  
             <button>creer un compte</button>
-            <p class="message">Vous avez deja un compte ?<a href="{{Route('user.login')}}">Connectez vous</a></p>
+            <p class="message">Vous avez deja un compte ?<a href="{{Route('login')}}">Connectez vous</a></p>
         </form>
         </div>
     </div>

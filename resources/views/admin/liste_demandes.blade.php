@@ -13,6 +13,7 @@
                   <th><h4>Numero titre foncier</h4></th>
                   <th><h4>Superficie</h4></th>
                   <th><h4>Destination</h4></th>
+                  <th><h4>budget</h4></th>
                   <th><h4>Statut</h4></th>
                   <th><h4>Date de creation</h4></th>
                   <th><h4>Action</h4></th>
@@ -28,6 +29,7 @@
                         <td>{{$demande->numero_du_titre_foncier}}</td>
                         <td>{{$demande->superficie}}</td>
                         <td>{{str_replace('_', ' ', $demande->destination)}}</td>
+                        <td>{{$demande->budget}}</td>
                         <td>{{str_replace('_', ' ', $demande->statut)}}</td>
                         <td>{{$demande->created_at->format('j F, Y')}}</td>
                         <td>
